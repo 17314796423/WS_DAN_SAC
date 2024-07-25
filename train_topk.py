@@ -241,7 +241,7 @@ def train():
         lr_val = get_lr(optimizer)
         print("Start epoch %d ==========,lr=%f" % (e, lr_val))
         (train_prec1, train_prec1_k, train_prec1_0, train_prec1_001, train_prec1_01, train_prec1_05), train_loss = engine.train(state, e)
-        (prec1, prec1_k, prec1_0, prec1_001, prec1_01, prec1_05), val_loss, cos_sim_loss = engine.validate(state)
+        (prec1, prec1_k, prec1_0, prec1_001, prec1_01, prec1_05), val_loss = engine.validate(state)
         # test_prec1, test_prec1_k, test_prec1_0, test_prec1_001, test_prec1_01, test_prec1_05, prec5 = engine.test(val_loader, net, config, sw, e)
         cur_best = sorted([prec1, prec1_k, prec1_0, prec1_001, prec1_01, prec1_05], key=lambda x: -x)[0]
         is_best = cur_best > best_prec1
@@ -265,7 +265,7 @@ def train():
         sw.add_scalars("Accurancy_001", {'train': train_prec1_001, 'val': prec1_001}, e)
         sw.add_scalars("Accurancy_01", {'train': train_prec1_01, 'val': prec1_01}, e)
         sw.add_scalars("Accurancy_05", {'train': train_prec1_05, 'val': prec1_05}, e)
-        sw.add_scalars("Loss", {'train': train_loss, 'val': val_loss, 'cos_sim_loss': cos_sim_loss}, e)
+        sw.add_scalars("Loss", {'train': train_loss, 'val': val_loss}, e)
         # sw.add_scalars("best_prec_test", {'test': best_prec_test}, e)
         if config.scheduler == 'plateau':
             scheduler.step(val_loss)

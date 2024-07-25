@@ -312,7 +312,7 @@ class Engine():
                       .format(top1=top1, top5=top5, top1_k=top1_k, top5_k=top5_k, top1_0=top1_0, top5_0=top5_0,
                               top1_001=top1_001, top5_001=top5_001, top1_01=top1_01, top5_01=top5_01,
                               top1_05=top1_05, top5_05=top5_05))
-                return (top1.avg, top1_k.avg, top1_0.avg, top1_001.avg, top1_01.avg, top1_05.avg), losses.avg,
+                return (top1.avg, top1_k.avg, top1_0.avg, top1_001.avg, top1_01.avg, top1_05.avg), losses.avg
             else:
                 print(' * Prec@1 {top1.avg:.3f} Prec@5 {top5.avg:.3f}'
                       .format(top1=top1, top5=top5))

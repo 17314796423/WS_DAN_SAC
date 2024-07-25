@@ -85,8 +85,7 @@ python utils/convert_data.py  --dataset_name bird --root_path .../Fine-grained/C
 - Train
 
 ```
-python train_topk.py train --model-name inception --batch-size 24 --dataset bird --image-size 512 --input-size 448 --checkpoint-path checkpoint/bird --optim sgd --scheduler none --lr 0.001 --momentum 0.9 --weight-decay 1e-5 --workers 0 --parts 32 --epochs 80 --use-gpu --multi-gpu --gpu-ids 0,1 --resume-bap checkpoint/bird/non.pth.tar --resume checkpoint/bird/checkpoint.pth.tar --feature-extract True --prefix=/home/ljy/WS_DAN_SAC/
-
+train_topk.py train --model-name inception --batch-size 24 --dataset bird --image-size 512 --input-size 448 --checkpoint-path checkpoint/bird --optim sgd --scheduler none --lr 0.001 --momentum 0.9 --weight-decay 1e-5 --workers 0 --parts 32 --epochs 80 --use-gpu --multi-gpu --gpu-ids 0,1 --resume-bap checkpoint/bird/non.pth.tar --resume checkpoint/bird/checkpoint.pth.tar --feature-extract True --prefix /home/ljy/Projects/WS_DAN_SAC/
 ```
 一个简单的以后台使用sh的方式 `sh train_topk.sh` 或者用cmd运行在后台 `nohup sh train_topk.sh 1>train.log 2>error.log &`
 - Test
